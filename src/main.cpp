@@ -3,8 +3,8 @@
 
 int main(int argc, const char* argv[]) {
     PassGen obj;
-
-    if (argc > 3) {
+    int size = 15;
+    if (argc > 5) {
         obj.HelpMenu(argv[0]);
         return 1;
     }
@@ -17,11 +17,18 @@ int main(int argc, const char* argv[]) {
         }
         else if (args == "-s" || args == "--symbols") {
             obj.SetSymbol(1);
-
+        }else if(args == "-h" || args == "--help"){
+            obj.HelpMenu(argv[0]);
+        }else if( args == "--size" ){
+            if(!argv[i+1]){
+                std::cerr << "Please specify the number!";
+                return 29;
+            }
+            size = std::stoi(argv[i+1]);
         }
     }
     
-    obj.GeneratePassword(obj.GetDigit(), obj.GetSymbol());
+    obj.GeneratePassword(obj.GetDigit(), obj.GetSymbol(), size);
     return 0;
 }
 

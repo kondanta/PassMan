@@ -18,7 +18,7 @@ public:
     void SetDigit(int flag);
     void SetSymbol(int flag);
     void HelpMenu(std::string argument);
-    void GeneratePassword(int, int);
+    void GeneratePassword(int, int, int);
 
 };
 

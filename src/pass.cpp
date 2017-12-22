@@ -57,13 +57,13 @@ std::vector<char> CreateContainer(int dflag, int sflag){
 }
 
 
-void PassGen::GeneratePassword(int dflag, int sflag){
-   // std::vector<std::string> passContainer;
+void PassGen::GeneratePassword(int dflag, int sflag, int size=15){
+    // Generating the container for the password generation.
     std::vector<char> passContainer = CreateContainer(dflag, sflag);
     //Randomizing the generation each time it called!
     srand(time(NULL));
 
-    for(int i = 0; i < 15; i++){
+    for(int i = 0; i < size; i++){
         int x = rand() % passContainer.size();
         std::cout<<passContainer.at(x);
     }
