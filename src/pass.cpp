@@ -30,36 +30,30 @@ void PassGen::HelpMenu(std::string argument){
 }
 
 
-//FIXME: Add else for 0 0 case.``
+//FIXME: CCN is 7, try to fix it.
 std::vector<char> CreateContainer(int dflag, int sflag){
-    std::vector<char> passContainer;
-     // 3 posibilities for flags~
+    // Flag option digit
+    std::vector<char> digitals = {'0','1', '2', '3', '4', '5', '6', '7', '8','9'};
+    //base vector to be used for password generation
+    std::vector<char> letters = {'a','b','c','d','e','f','g','h','i','j','k','l',
+                                 'm','n','o','p','q','r','s','t','u','v','w','x',
+                                 'y','z','A','B','C', 'D','E','F','G','H','I','J',
+                                 'K','L','M','N','O','P','Q','R','S','T','U','V','W',
+                                 'X','Y','Z'};
+    // Flag option symbols. 
+    std::vector<char> metaChars = {'!','#','$','%','^','&','*','(',')','+','-',
+                                    '.','/',':',';','<','=','>','?','@','[','\\',
+                                    ']','_','{','|','}','~'}; 
+   
     if(dflag == 1 && sflag == 1){
-        // between 1 to } all available stuff. 
-        for(char i = 33 ;  i < 127; i++){
-            passContainer.push_back(i);
-        }
+       letters.insert(letters.begin(), digitals.begin(), digitals.end());
+        letters.insert(letters.begin(), metaChars.begin(), metaChars.end());
     }else if(dflag == 1 && sflag == 0){
-        for(char i = 48; i < 123; i++){
-            // Fuck ASCII
-            if(i == 58){
-                i = 65;
-            }if(i == 91){
-                i = 97;
-            }
-            passContainer.push_back(i);
-        }      
-        
+        letters.insert(letters.begin(), digitals.begin(), digitals.end());
     }else if(dflag == 0 && sflag == 1){
-        for(char i = 33; i < 126; i++){
-            if(i == 47)
-                i = 60;
-            passContainer.push_back(i);
-        }
-    }else{
-        passContainer.push_back('E');
+        letters.insert(letters.begin(), metaChars.begin(), metaChars.end());
     }
-    return passContainer;
+    return letters;
 }
 
 

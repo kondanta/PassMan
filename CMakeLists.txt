@@ -5,8 +5,12 @@ project(passGen)
 include_directories(${PROJECT_SOURCE_DIR}/inc)
 
 #compiler flags
-set(CMAKE_CXX_FLAGS "-std=c++17 -Wall -Wextra -Werror -g")
+set(CMAKE_CXX_FLAGS "-std=c++17 -Wall -Wextra -Werror -fsanitize=address -g")
+set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
+# changing compiler
+# exports=/usr/bin/[clang/gcc] -> on terminal though [changing environment value]
+      
 #Its for the sublime text, without these, it doesnt find the pass.h
 SET( CMAKE_EXPORT_COMPILE_COMMANDS ON )
 
