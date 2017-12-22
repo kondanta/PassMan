@@ -22,11 +22,21 @@ int PassGen::GetSymbol(){
 	return symbols;
 }
 
+void PassGen::setPassword(std::string pass){
+    generatedPassword = pass;
+}
+
+
+std::string PassGen::getPassword(){
+    return generatedPassword; 
+}
+
 
 void PassGen::HelpMenu(std::string argument){
     std::cerr << "Usage for "<<argument<<'\n'
             << "-d, --digit\t for numbers [0..9]\n"
-            <<"-s, --symbols\t for !@#$%..";
+            <<"-s, --symbols\t for !@#$%.."
+            << "--size [no]\t Generating passwords by given size.";
 }
 
 
@@ -60,17 +70,13 @@ std::vector<char> CreateContainer(int dflag, int sflag){
 void PassGen::GeneratePassword(int dflag, int sflag, int size=15){
     // Generating the container for the password generation.
     std::vector<char> passContainer = CreateContainer(dflag, sflag);
+    std::string pass;
     //Randomizing the generation each time it called!
     srand(time(NULL));
 
     for(int i = 0; i < size; i++){
         int x = rand() % passContainer.size();
-        std::cout<<passContainer.at(x);
+        pass += passContainer.at(x);
     }
-    std::cout << "\nRand generated. Newline inserting\n";
-    // Printer -> separatable.
-    for(std::vector<char>::const_iterator it = passContainer.begin();
-            it != passContainer.end(); ++it){
-        std::cout << *it;
-    }
+    setPassword(pass);
 }

@@ -19,6 +19,9 @@ public:
     void SetSymbol(int flag);
     void HelpMenu(std::string argument);
     void GeneratePassword(int, int, int);
+    //Saving the generated password.
+    void setPassword(std::string);
+    std::string getPassword();
 
 };
 

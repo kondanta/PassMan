@@ -29,6 +29,7 @@ int main(int argc, const char* argv[]) {
     }
     
     obj.GeneratePassword(obj.GetDigit(), obj.GetSymbol(), size);
+    std::cout << obj.getPassword();
     return 0;
 }
 
