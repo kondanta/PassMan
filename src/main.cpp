@@ -1,6 +1,8 @@
 #include "pass.hpp"
 
 
+/*GitHub signing the commit testing with gpg. */
+
 int main(int argc, const char* argv[]) {
     PassGen obj;
     int size = 15;
