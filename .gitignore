@@ -2,6 +2,7 @@
 bin/
 *.swp
 *.json
+tags
 
 # Prerequisites
 *.d
