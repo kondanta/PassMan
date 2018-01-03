@@ -6,8 +6,6 @@ include_directories(${PROJECT_SOURCE_DIR}/inc)
 
 
 add_subdirectory(tests)
-enable_testing()
-add_test(NAME MyTest COMMAND Test)
 
 
 add_library(mylib SHARED ${PROJECT_SOURCE_DIR}/src/pass.cpp)
