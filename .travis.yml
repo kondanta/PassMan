@@ -1,10 +1,17 @@
+sudo: required
 language: cpp
 compiler:
   - gcc
   - clang
 
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - cmake
 script:
-  - cmake ..
+  - cmake .. && make
 
 before_script:
   - mkdir build; cd build
