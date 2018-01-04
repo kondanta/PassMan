@@ -1,6 +1,7 @@
 #include "pass.hpp"
 #include <cstdlib>
 #include <ctime>
+#include <utility>
 #include <vector>
 
 void PassGen::SetDigit(int flag) { digit = flag; }
@@ -11,7 +12,7 @@ int PassGen::GetDigit() { return digit; }
 
 int PassGen::GetSymbol() { return symbols; }
 
-void PassGen::setPassword(std::string pass) { generatedPassword = pass; }
+void PassGen::setPassword(std::string pass) { generatedPassword = std::move(pass); }
 
 std::string PassGen::getPassword() { return generatedPassword; }
 
