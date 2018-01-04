@@ -54,7 +54,7 @@ void PassGen::GeneratePassword(int dflag, int sflag, int size = 15) {
   std::vector<char> passContainer = CreateContainer(dflag, sflag);
   std::string pass;
   // Randomizing the generation each time it called!
-  srand(time(NULL));
+  srand(time(nullptr));
 
   for (int i = 0; i < size; i++) {
     int x = rand() % passContainer.size();
