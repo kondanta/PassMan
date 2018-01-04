@@ -20,7 +20,7 @@ int main(int argc, const char *argv[]) {
     } else if (args == "-h" || args == "--help") {
       obj.HelpMenu(argv[0]);
     } else if (args == "--size") {
-      if (!argv[i + 1]) {
+      if (argv[i + 1] == nullptr) {
         std::cerr << "Please specify the number!";
         return 29;
       }

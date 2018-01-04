@@ -16,7 +16,7 @@ void PassGen::setPassword(std::string pass) { generatedPassword = std::move(pass
 
 std::string PassGen::getPassword() { return generatedPassword; }
 
-void PassGen::HelpMenu(std::string argument) {
+void PassGen::HelpMenu(const std::string& argument) {
   std::cerr << "Usage for " << argument << '\n'
             << "-d, --digit\t for numbers [0..9]\n"
             << "-s, --symbols\t for !@#$%.."
