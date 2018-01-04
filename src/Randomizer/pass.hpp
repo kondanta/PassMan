@@ -7,11 +7,11 @@
 class PassGen {
 private:
     std::string generatedPassword;
-    int digit;
-    int symbols;
+    int digit{0};
+    int symbols{0};
 public:
-    PassGen(): digit(0), symbols(0) {};
-    ~PassGen() {};
+    PassGen() {};
+    ~PassGen() = default;;
     //Set and Get Methods
     int GetDigit();
     int GetSymbol();
