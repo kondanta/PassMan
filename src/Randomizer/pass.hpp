@@ -6,23 +6,23 @@
 
 class PassGen {
 private:
-    std::string generatedPassword;
-    int digit{0};
-    int symbols{0};
-public:
-    PassGen() {};
-    ~PassGen() = default;;
-    //Set and Get Methods
-    int GetDigit();
-    int GetSymbol();
-    void SetDigit(int flag);
-    void SetSymbol(int flag);
-    void HelpMenu(std::string argument);
-    void GeneratePassword(int, int, int);
-    //Saving the generated password.
-    void setPassword(std::string);
-    std::string getPassword();
+  std::string generatedPassword;
+  int digit{0};
+  int symbols{0};
 
+public:
+  PassGen() = default;
+  ~PassGen() = default;
+  // Set and Get Methods
+  int GetDigit();
+  int GetSymbol();
+  void SetDigit(int flag);
+  void SetSymbol(int flag);
+  void HelpMenu(const std::string &argument);
+  void GeneratePassword(int /*dflag*/, int /*sflag*/, int /*size*/);
+  // Saving the generated password.
+  void setPassword(std::string /*pass*/);
+  std::string getPassword();
 };
 
 
