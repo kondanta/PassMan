@@ -1,6 +1,7 @@
 #include "pass.hpp"
 #include <cstdlib>
 #include <ctime>
+#include <random>
 #include <utility>
 #include <vector>
 
@@ -49,15 +50,19 @@ std::vector<char> CreateContainer(int dflag, int sflag) {
   return letters;
 }
 
-void PassGen::GeneratePassword(int dflag, int sflag, int size = 15) {
+void PassGen::GeneratePassword(int dflag, int sflag, int size) {
   // Generating the container for the password generation.
   std::vector<char> passContainer = CreateContainer(dflag, sflag);
   std::string pass;
+  // Random lib >?
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_int_distribution<> dis(0, passContainer.size() - 1);
   // Randomizing the generation each time it called!
-  srand(time(nullptr));
+  std::srand(std::time(nullptr));
 
   for (int i = 0; i < size; i++) {
-    int x = rand() % passContainer.size();
+    int x = dis(gen);
     pass += passContainer.at(x);
   }
   setPassword(pass);
