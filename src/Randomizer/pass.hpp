@@ -25,5 +25,4 @@ public:
   std::string getPassword();
 };
 
-
 #endif //__PASS_H_INCLUDED__
