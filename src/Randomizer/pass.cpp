@@ -13,15 +13,18 @@ int PassGen::GetDigit() { return digit; }
 
 int PassGen::GetSymbol() { return symbols; }
 
-void PassGen::setPassword(std::string pass) { generatedPassword = std::move(pass); }
+void PassGen::setPassword(std::string pass) {
+  generatedPassword = std::move(pass);
+}
 
 std::string PassGen::getPassword() { return generatedPassword; }
 
 void PassGen::HelpMenu(const std::string &argument) {
   std::cerr << "Usage for " << argument << '\n'
             << "-d, --digit\t for numbers [0..9]\n"
-            << "-s, --symbols\t for !@#$%.."
-            << "--size [no]\t Generating passwords by given size.";
+            << "-s, --symbols\t for !@#$%..\n"
+            << "--size [no]\t Generating passwords by given size.\n";
+  exit(0);
 }
 
 // FIXME: CCN is 7, try to fix it.

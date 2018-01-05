@@ -1,10 +1,8 @@
 #include "Randomizer/pass.hpp"
 
-/*GitHub signing the commit testing with gpg. */
-
 int main(int argc, const char *argv[]) {
   PassGen obj;
-  int size = 15;
+  int size = 8; // Default size.
   if (argc > 5) {
     obj.HelpMenu(argv[0]);
     return 1;
